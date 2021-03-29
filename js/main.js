@@ -42,12 +42,11 @@ function sesion(){
 
     }
 
-let fun = sesion;
-    function terminaSesion(fun) {
-firebase.auth().signOut().then(() => {
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
-      }
-    }
+  let fun = sesion;
+      function terminaSesion(fun) {
+  firebase.auth().signOut().then(() => {
+    // Sign-out successful.
+  }).catch((error) => {
+    // An error happened.
+  });
+        }
