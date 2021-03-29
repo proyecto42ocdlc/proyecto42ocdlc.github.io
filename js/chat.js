@@ -1,4 +1,4 @@
-function chat (){
+
       /* Recibe una función que se invoca cada que hay un cambio en la
        * autenticación y recibe el modelo con las características del usuario.*/
       auth.onAuthStateChanged(
@@ -101,5 +101,3 @@ function chat (){
         return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
       }
 
-
-    }
