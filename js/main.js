@@ -32,14 +32,6 @@ function sesion (){
         // Función que se invoca si hay un error al verificar el usuario.
         procesaError
       );
-      /** Termina la sesión. */
-      async function terminaSesión() {
-        try {
-          await auth.signOut();
-        } catch (e) {
-          procesaError(e);
-        }
-      }
       /** Procesa un error. Muestra el objeto en la consola y un cuadro de
        * alerta con el mensaje.
        * @param {Error} e descripción del error. */
@@ -49,3 +41,12 @@ function sesion (){
       }
 
     }
+let funcion = sesion();
+          /** Termina la sesión. */
+          function terminaSesión(funcion) {
+            try {
+              await auth.signOut();
+            } catch (e) {
+              procesaError(e);
+            }
+          }
