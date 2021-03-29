@@ -44,9 +44,9 @@ function sesion (){
 let funcion = sesion;
           /** Termina la sesión. */
           function terminaSesión(funcion) {
-            try {
-              await auth.signOut();
-            } catch (e) {
-              procesaError(e);
-            }
+            firebase.auth().signOut().then(() => {
+                // Sign-out successful.
+              }).catch((error) => {
+                // An error happened.
+              });
           }
