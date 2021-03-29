@@ -41,7 +41,9 @@ function sesion(){
       }
 
     }
-    function terminaSesion() {
+
+let fun = sesion;
+    function terminaSesion(fun) {
       try {
         await auth.signOut();
       } catch (e) {
