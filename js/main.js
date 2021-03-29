@@ -41,11 +41,10 @@ function sesion(){
       }
 
     }
-          /** Termina la sesión. */
-          function terminaSesion() {
-            firebase.auth().signOut().then(() => {
-              // Sign-out successful.
-            }).catch((error) => {
-              // An error happened.
-            });
-          }
+    function terminaSesion() {
+      try {
+        await auth.signOut();
+      } catch (e) {
+        procesaError(e);
+      }
+    }
