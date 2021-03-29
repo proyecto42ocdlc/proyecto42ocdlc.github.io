@@ -1,5 +1,5 @@
 
-function sesion (){
+function sesion(){
 //@ts-check
       /** Conexión al sistema de autenticación de Firebase. */
       // @ts-ignore
@@ -41,9 +41,9 @@ function sesion (){
       }
 
     }
-let funcion = sesion
+let funcion = sesion;
           /** Termina la sesión. */
-          function terminaSesión() {
+          function terminaSesion() {
             try {
               await auth.signOut();
             } catch (e) {
