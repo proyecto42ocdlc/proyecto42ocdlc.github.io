@@ -41,7 +41,7 @@ function sesion (){
       }
 
     }
-let funcion = sesion();
+let funcion = sesion;
           /** Termina la sesión. */
           function terminaSesión(funcion) {
             try {
