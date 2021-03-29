@@ -13,13 +13,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
-    
-   <!-- Carga el núcleo de Firebase JS SDK -->
-   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-   <!-- Agrega el manejo de autenticación. -->
-   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js">
-   </script>
-   <script src="js/init.js"></script>
+
+    <!-- Carga el núcleo de Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <!-- Agrega el manejo de autenticación. -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js">
+    </script>
+    <script src="js/init.js"></script>
     <script src="js/main.js"></script>
 
 
@@ -30,39 +30,41 @@
     <h1>
         Alumnos
     </h1>
-    
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Inicio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="InisioDeSesion.html">Iniciar sesion</a>
-            </li> 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Chat</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Alumnos</a>
-            </li>
-            <form action="javascript:terminaSesión()">
-            <li><output id="nombre"></output></li>
-            <li><output id="email"></output></li>
-            <output><img id="avatar" alt="Avatar"></output>      
-            <li >                
-                <button  class="btn btn-danger" type="submit">Cerrar sesion</button>
-            </form>
-              </li>    
-          </li>
-          
-          </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="InisioDeSesion.html">Iniciar sesion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Alumnos</a>
+                </li>
+                
+                    <li><output id="nombre"></output></li>
+                    <li><output id="email"></output></li>
+                    <output><img id="avatar" alt="Avatar"></output>
+                    <form action="javascript:terminaSesión()">
+                    <li>
+                        <button class="btn btn-danger" type="submit">Cerrar sesion</button>
+                </form>
+                </li>
+                </li>
+
+            </ul>
         </div>
-      </nav>
-      <h3>Click aqui para iniciar sesion</h3>
-      <form action="javascript:sesion()">
-      <button type="submit" > <img src="img/logoGoogle.png" alt="" width="50px" height="50px"></button>
+    </nav>
+    <h3>Click aqui para iniciar sesion</h3>
+    <form action="javascript:sesion()">
+        <button type="submit"> <img src="img/logoGoogle.png" alt="" width="50px" height="50px"></button>
     </form>
 
 
@@ -72,5 +74,6 @@
 
 </body>
 
-<footer>Osvaldo Cruz De La Cruz      Grupo:IC-42M</footer>
+<footer>Osvaldo Cruz De La Cruz Grupo:IC-42M</footer>
+
 </html>
