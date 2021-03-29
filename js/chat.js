@@ -1,4 +1,16 @@
 
+      // @ts-check
+      /** Nombre de usuario atenticado por Firebase. */
+      let usuario = "";
+      /** Conexión al sistema de autenticación de Firebase. */
+      // @ts-ignore
+      const auth = firebase.auth();
+      /** Tipo de autenticación de usuarios. En este caso es con Google. */
+      // @ts-ignore
+      const provider = new firebase.auth.GoogleAuthProvider();
+      /* Configura el proveedor de Google para que permita seleccionar de una
+       * lista. */
+      provider.setCustomParameters({ prompt: "select_account" });
       /* Recibe una función que se invoca cada que hay un cambio en la
        * autenticación y recibe el modelo con las características del usuario.*/
       auth.onAuthStateChanged(
@@ -100,4 +112,3 @@
       function cod(texto) {
         return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
       }
-
