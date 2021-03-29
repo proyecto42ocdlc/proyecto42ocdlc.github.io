@@ -31,29 +31,29 @@ export async function
     signInWithRedirect(provider);
 }
 
-// /** @param {import(
-//     "../lib/tiposFire.js").User}
-//     usuario
-//  * @param {string[]} roles
-//  * @returns {Promise<boolean>} */
-// export async function
-//   tieneRol(usuario, roles) {
-//   if (usuario && usuario.email) {
-//     const rolIds =
-//       await cargaRoles(
-//         usuario.email);
-//     for (const rol of roles) {
-//       if (rolIds.has(rol)) {
-//         return true;
-//       }
-//     }
-//     alert("No autorizado.");
-//     location.href = "index.html";
-//   } else {
-//     iniciaSesión();
-//   }
-//   return false;
-// }
+/** @param {import(
+    "../lib/tiposFire.js").User}
+    usuario
+ * @param {string[]} roles
+ * @returns {Promise<boolean>} */
+export async function
+  tieneRol(usuario, roles) {
+  if (usuario && usuario.email) {
+    const rolIds =
+      await cargaRoles(
+        usuario.email);
+    for (const rol of roles) {
+      if (rolIds.has(rol)) {
+        return true;
+      }
+    }
+    alert("No autorizado.");
+    location.href = "index.html";
+  } else {
+    iniciaSesión();
+  }
+  return false;
+}
 
 export async function
   terminaSesión() {
