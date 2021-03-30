@@ -1,0 +1,19 @@
+input{
+     text-align: center;
+    width: 250px;    
+    display: block;
+    
+    
+
+}
+form{
+    margin: 0 auto; 
+    width:250px;
+}
+button{
+    margin: 0 auto; 
+    width:250px;
+}
+h1{
+    text-align: center;
+}
