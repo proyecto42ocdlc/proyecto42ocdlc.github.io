@@ -14,11 +14,12 @@
     src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js">
     </script>
     <script src="js/init.js"></script>
+    <script src="js/main.js"></script>
     
   </head>
   <body>
     <h1>Chat</h1>
-    <form action="javascript:agrega();">
+    <form action="javascript:agrega()">
       <input id="texto" type="text" required placeholder="Mensaje">
       <button>Enviar</button>
     </form>
@@ -27,4 +28,19 @@
       Copyrigth           Osvaldo Cruz De La Cruz
     </footer>    
   </body>
+  <script>
+    
+  // @ts-check
+      /** Nombre de usuario atenticado por Firebase. */
+      let usuario = "";
+      /** Conexión al sistema de autenticación de Firebase. */
+      // @ts-ignore
+      const auth = firebase.auth();
+      /** Tipo de autenticación de usuarios. En este caso es con Google. */
+      // @ts-ignore
+      const provider = new firebase.auth.GoogleAuthProvider();
+      /* Configura el proveedor de Google para que permita seleccionar de una
+       * lista. */
+      provider.setCustomParameters({ prompt: "select_account" });
+  </script>
 </html>
