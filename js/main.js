@@ -83,7 +83,7 @@ function sesion(){
 
     function agrega() {
 
-      const tel = document.getElementById("telefono");
+      const tel = document.getElementById("telefono").value;
       const nom = document.getElementById("nombre").value;
       const matri = document.getElementById("matricula").value;
       const grupo = document.getElementById("grupo").value;
@@ -92,16 +92,16 @@ function sesion(){
        * "USUARIO", "TEXTO" y "BORRARALO" son los nombres de los campos en el
        * documento.
        * El timestamp contiene la fecha y hora en que se agrega el registro.*/
-      console.log(tel);
+      
 
-      // firestore.collection("MENSAJE").add({
-      //   TELEFONO: tel,
-      //   NOMBRE: nom,
-      //   MATRICULA: matri,
-      //   GRUPO: grupo,
-      //   FECHA: fecha
+      firestore.collection("MENSAJE").add({
+        TELEFONO: tel,
+        NOMBRE: nom,
+        MATRICULA: matri,
+        GRUPO: grupo,
+        FECHA: fecha
 
-      // });
+      });
     }
     /** Muestra los mensaje almacenados en la collection "MENSAJE". Se
      * actualiza automáticamente. */
