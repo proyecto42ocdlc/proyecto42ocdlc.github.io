@@ -74,14 +74,15 @@ function sesion(){
       // Función que se invoca si hay un error al verificar el usuario.
       procesaError
     );
-    /** Conexión a la base de datos. */
-    // @ts-ignore
-    const firestore = firebase.firestore();
-    /** Agrega un usuario a la base de datos. */
+
 
   }
 
     function agrega() {
+          /** Conexión a la base de datos. */
+    // @ts-ignore
+    const firestore = firebase.firestore();
+    /** Agrega un usuario a la base de datos. */
 
       const tel = document.getElementById("telefono").value;
       const nom = document.getElementById("nombre").value;
