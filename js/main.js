@@ -200,7 +200,7 @@ var db = firebase.firestore();
 
 
   function eliminar(id){
-    db.collection("users").doc(id).remove().then(function(){
+    db.collection("Alumnos").doc(id).delete().then(function(){
       console.log("Se borro el documento");
     }).catch(function(error){
       console.log("Error al borrar el documento ");
