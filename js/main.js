@@ -220,9 +220,9 @@ function editar(id, nombre, matricula, grupo, telefono,fecha) {
 
 
 
-  // let boton = document.getElementById("boton");
+ var boton = document.getElementById("boton");
   boton.innerHTML = 'Editar';
-  boton.onclick = function () {
+  boton.onclick = function (boton) {
 
     var alumno = db.collection("Alumnos").doc(id);
 
