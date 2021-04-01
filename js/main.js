@@ -146,14 +146,16 @@ var db = firebase.firestore();
               const data = doc.data();
               
               salida.innerHTML += /* html */
-                `<td>${doc.data().NOMBRE} </td><br>
-                <td>${doc.data().MATRICULA} </td><br>
-                <td>${doc.data().GRUPO} </td><br>
-                <td>${doc.data().FECHA} </td><br>
-                <td>${doc.data().TELEFONO} </td><br>`;
+                `<td>${doc.data().NOMBRE} </td>
+                <td>${doc.data().MATRICULA} </td>
+                <td>${doc.data().GRUPO} </td>
+                <td>${doc.data().TELEFONO} </td>
+                <td>${doc.data().FECHA} </td>`;
+
+
             })
           },
-          /* Función que se invoca cuando hay un error. Muestra el error. Al
+          /* Función que se invoca cuando hay un error. Muesstra el error. Al
            * invocar esta función la conexión se cancela. Por lo mismo, se
            * vuelve a conectar. */
           e => {
@@ -190,3 +192,5 @@ var db = firebase.firestore();
     function cod(texto) {
       return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
     }
+
+    muestraAlumnos();
