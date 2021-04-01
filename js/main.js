@@ -151,7 +151,10 @@ var db = firebase.firestore();
               <td>${doc.data().MATRICULA} </td>
               <td>${doc.data().GRUPO} </td>
               <td>${doc.data().TELEFONO} </td>
-              <td>${doc.data().FECHA} </td>`;
+              <td>${doc.data().FECHA} </td>
+              <td><button class="btn btn-danger">Eliminar</button></td>
+              <td><button class="btn btn-warning">Editar</button></td>`;
+              
 
 
           })
