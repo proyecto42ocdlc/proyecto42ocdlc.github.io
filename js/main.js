@@ -193,3 +193,5 @@ var db = firebase.firestore();
   function cod(texto) {
     return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
   }
+
+  agrega();
