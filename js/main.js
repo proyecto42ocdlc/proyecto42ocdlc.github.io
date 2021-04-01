@@ -224,8 +224,10 @@ function editar(id, nombre, matricula, grupo, telefono) {
   const grup = document.getElementById("grupo").value;
   const fech = document.getElementById("fecha").value;
 
-  boton.innerHTML = 'Editar'; 
 
+
+  let boton = document.getElementById("boton");
+  boton.innerHTML = 'Editar';
   boton.onclick = function () {
 
     var alumno = db.collection("Alumnos").doc(id);
