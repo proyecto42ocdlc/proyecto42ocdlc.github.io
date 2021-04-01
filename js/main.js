@@ -248,5 +248,6 @@ function editar(id, nombre, matricula, grupo, telefono) {
       });
   }
 
+  boton.innerHTML = 'Guardar';
 
 }
