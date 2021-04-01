@@ -121,10 +121,10 @@ var db = firebase.firestore();
     /** Muestra los mensaje almacenados en la collection "MENSAJE". Se
      * actualiza automáticamente. */
 
-    function muestraAlumnos() {
+   
       var db = firebase.firestore();
 
-      let salida = document.getElementById("salida");
+      var salida = document.getElementById('salida');
       /* Consulta que se actualiza automáticamente. Pide todos los registros
        * de la colección "MENSAJE" ordenador por el campo "BORRARALO" de forma
        * descendiente. */
@@ -164,7 +164,7 @@ var db = firebase.firestore();
             muestraMensajes();
           }
         )
-    }
+    
 
 
 
@@ -193,4 +193,4 @@ var db = firebase.firestore();
       return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
     }
 
-    
+    muestraAlumnos();
