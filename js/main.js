@@ -197,11 +197,18 @@ function eliminar(id) {
 function editar(id, nombre, matricula, grupo, telefono,fecha) {
 
 
-  document.getElementById("telefono").value = telefono;
-  document.getElementById("nombre").value = nombre;
-  document.getElementById("matricula").value = matricula;
-  document.getElementById("grupo").value = grupo;
-  document.getElementById("fecha").value = fecha;
+  let telefo1 = document.getElementById("telefono").value ;
+  let nombre1=document.getElementById("nombre").value;
+  let matricula1=document.getElementById("matricula").value;
+  let grupo1=document.getElementById("grupo").value;
+  let fecha1=document.getElementById("fecha").value;
+
+  telefo1 = telefono;
+  nombre1 = nombre;
+  matricula1 = matricula;
+  grupo1 = grupo;
+  fecha1 = fecha;
+
   
 
   const tel = document.getElementById("telefono").value;
@@ -215,7 +222,7 @@ function editar(id, nombre, matricula, grupo, telefono,fecha) {
 
   // let boton = document.getElementById("boton");
   boton.innerHTML = 'Editar';
-  boton.onclick = function (boton) {
+  boton.onclick = function () {
 
     var alumno = db.collection("Alumnos").doc(id);
 
@@ -226,7 +233,7 @@ function editar(id, nombre, matricula, grupo, telefono,fecha) {
       GRUPO: grup,
       FECHA: fech,
     })
-      .then(() => {
+      .then(() => {s
         boton.innerHTML = 'Guardar';
         console.log("Document successfully updated!");
       })
