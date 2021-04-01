@@ -121,7 +121,7 @@ var db = firebase.firestore();
   /** Muestra los mensaje almacenados en la collection "MENSAJE". Se
    * actualiza automáticamente. */
 
- function agrega(){
+ 
     var db = firebase.firestore();
 
     
@@ -166,7 +166,7 @@ var db = firebase.firestore();
         }
       )
   
-    }
+
 
 
 
@@ -193,5 +193,3 @@ var db = firebase.firestore();
   function cod(texto) {
     return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
   }
-
-  agrega();
