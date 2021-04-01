@@ -124,7 +124,7 @@ var db = firebase.firestore();
    
       var db = firebase.firestore();
 
-      var salida = document.getElementById('salida');
+      
       /* Consulta que se actualiza automáticamente. Pide todos los registros
        * de la colección "MENSAJE" ordenador por el campo "BORRARALO" de forma
        * descendiente. */
@@ -138,7 +138,8 @@ var db = firebase.firestore();
           querySnapshot => {
             // Vacía la lista con los mensajes.
             // @ts-ignore
-            salida.innerHTML = "";
+            var salida = document.getElementById('salida');
+            salida.innerHTML = " ";
             /* Revisa un por uno los registros de la consulta y los muestra.
              * El iterador "doc" es un registro de la base de datos. */
             querySnapshot.forEach(doc => {
@@ -192,5 +193,3 @@ var db = firebase.firestore();
     function cod(texto) {
       return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
     }
-
-    muestraAlumnos();
