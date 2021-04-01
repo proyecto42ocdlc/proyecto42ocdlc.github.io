@@ -23,8 +23,7 @@ function sesion() {
       if (usuarioAuth && usuarioAuth.email) {
         // Usuario aceptado.
         usuario = usuarioAuth.email;
-        // Muestra los salida del chat.
-        muestraMensajes();
+        // Muestra los salida del chat.        
       } else {
         // No ha iniciado sesión. Pide datos para iniciar sesión.
         await auth.signInWithRedirect(provider);
