@@ -77,32 +77,17 @@ function sesion() {
 
 
 }
+var db = firebase.firestore();
 
 function agrega() {
-  /** Conexión a la base de datos. */
-  // // @ts-ignore
-  // const firestore = firebase.firestore();
-  // /** Agrega un usuario a la base de datos. */
 
-  const tel = document.getElementById("telefono").value;
-  const nom = document.getElementById("nombre").value;
-  const matri = document.getElementById("matricula").value;
-  const grupo = document.getElementById("grupo").value;
-  const fecha = document.getElementById("fecha").value;
-  /* "MENSAJE" es el nombre de la colección a la que se agregan los datos.
-   * "USUARIO", "TEXTO" y "BORRARALO" son los nombres de los campos en el
-   * documento.
-   * El timestamp contiene la fecha y hora en que se agrega el registro.*/
+  var tel = document.getElementById("telefono").value;
+  var nom = document.getElementById("nombre").value;
+  var matri = document.getElementById("matricula").value;
+  var grupo = document.getElementById("grupo").value;
+  var fecha = document.getElementById("fecha").value;
 
 
-
-
-
-  //   });
-  // Initialize Cloud Firestore through Firebase
-
-
-  var db = firebase.firestore();
 
   db.collection("Alumnos").add({
     TELEFONO: tel,
@@ -247,10 +232,10 @@ function editar(id, nombre, matricula, grupo, telefono) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
-      
-      boton.innerHTML = 'Guardar';
+
+    boton.innerHTML = 'Guardar';
   }
 
-  
+
 
 }
