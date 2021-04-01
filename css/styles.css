@@ -4,10 +4,8 @@ input{
     display: block;
     margin: 0 auto; 
     
-    
-
 }
-button{
+div{
     text-align: center;
     width: 250px;    
     display: block;
