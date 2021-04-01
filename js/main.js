@@ -207,7 +207,8 @@ function editar(id, nombre, matricula, grupo, telefono) {
   const nom = document.getElementById("nombre").value;
   const matri = document.getElementById("matricula").value;
   const grup = document.getElementById("grupo").value;
-  const fech = document.getElementById("fecha").value;
+  // const fech = document.getElementById("fecha").value;
+  const fech = "Ejemplo";
 
 
 
