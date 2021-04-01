@@ -226,9 +226,9 @@ function editar(id, nombre, matricula, grupo, telefono) {
 
 
 
-  
+  let boton = document.getElementById("boton");
   boton.innerHTML = 'Editar';
-  boton.onclick = function () {
+  boton.onclick = function (boton) {
 
     var alumno = db.collection("Alumnos").doc(id);
 
@@ -240,12 +240,14 @@ function editar(id, nombre, matricula, grupo, telefono) {
       FECHA: fech
     })
       .then(() => {
+        boton.innerHTML = 'Guardar';
         console.log("Document successfully updated!");
       })
       .catch((error) => {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
+      
       boton.innerHTML = 'Guardar';
   }
 
