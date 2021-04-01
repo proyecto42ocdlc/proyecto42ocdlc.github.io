@@ -14,6 +14,7 @@ input{
 button{
     margin: 0 auto; 
     width:250px;
+    display: block;
 }
 h1{
     text-align: center;
