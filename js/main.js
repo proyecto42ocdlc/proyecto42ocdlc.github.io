@@ -43,153 +43,153 @@
 function sesion(){
 
 
-    // @ts-check
-    /** Nombre de usuario atenticado por Firebase. */
-    let usuario = "";
-    /** Conexión al sistema de autenticación de Firebase. */
-    // @ts-ignore
-    const auth = firebase.auth();
-    /** Tipo de autenticación de usuarios. En este caso es con Google. */
-    // @ts-ignore
-    const provider = new firebase.auth.GoogleAuthProvider();
-    /* Configura el proveedor de Google para que permita seleccionar de una
-     * lista. */
-    provider.setCustomParameters({ prompt: "select_account" });
-    /* Recibe una función que se invoca cada que hay un cambio en la
-     * autenticación y recibe el modelo con las características del usuario.*/
-    auth.onAuthStateChanged(
-      /** Recibe las características del usuario o null si no ha iniciado
-       * sesión. */
-      async usuarioAuth => {
-        if (usuarioAuth && usuarioAuth.email) {
-          // Usuario aceptado.
-          usuario = usuarioAuth.email;
-          // Muestra los salida del chat.
-          muestraMensajes();
-        } else {
-          // No ha iniciado sesión. Pide datos para iniciar sesión.
-          await auth.signInWithRedirect(provider);
-        }
-      },
-      // Función que se invoca si hay un error al verificar el usuario.
-      procesaError
-    );
+  // @ts-check
+  /** Nombre de usuario atenticado por Firebase. */
+  let usuario = "";
+  /** Conexión al sistema de autenticación de Firebase. */
+  // @ts-ignore
+  const auth = firebase.auth();
+  /** Tipo de autenticación de usuarios. En este caso es con Google. */
+  // @ts-ignore
+  const provider = new firebase.auth.GoogleAuthProvider();
+  /* Configura el proveedor de Google para que permita seleccionar de una
+   * lista. */
+  provider.setCustomParameters({ prompt: "select_account" });
+  /* Recibe una función que se invoca cada que hay un cambio en la
+   * autenticación y recibe el modelo con las características del usuario.*/
+  auth.onAuthStateChanged(
+    /** Recibe las características del usuario o null si no ha iniciado
+     * sesión. */
+    async usuarioAuth => {
+      if (usuarioAuth && usuarioAuth.email) {
+        // Usuario aceptado.
+        usuario = usuarioAuth.email;
+        // Muestra los salida del chat.
+        muestraMensajes();
+      } else {
+        // No ha iniciado sesión. Pide datos para iniciar sesión.
+        await auth.signInWithRedirect(provider);
+      }
+    },
+    // Función que se invoca si hay un error al verificar el usuario.
+    procesaError
+  );
 
 
-  }
+}
 
-    function agrega() {
-          /** Conexión a la base de datos. */
-    // // @ts-ignore
-    // const firestore = firebase.firestore();
-    // /** Agrega un usuario a la base de datos. */
+  function agrega() {
+        /** Conexión a la base de datos. */
+  // // @ts-ignore
+  // const firestore = firebase.firestore();
+  // /** Agrega un usuario a la base de datos. */
 
-      const tel = document.getElementById("telefono").value;
-      const nom = document.getElementById("nombre").value;
-      const matri = document.getElementById("matricula").value;
-      const grupo = document.getElementById("grupo").value;
-      const fecha = document.getElementById("fecha").value;
-      /* "MENSAJE" es el nombre de la colección a la que se agregan los datos.
-       * "USUARIO", "TEXTO" y "BORRARALO" son los nombres de los campos en el
-       * documento.
-       * El timestamp contiene la fecha y hora en que se agrega el registro.*/
-      
+    const tel = document.getElementById("telefono").value;
+    const nom = document.getElementById("nombre").value;
+    const matri = document.getElementById("matricula").value;
+    const grupo = document.getElementById("grupo").value;
+    const fecha = document.getElementById("fecha").value;
+    /* "MENSAJE" es el nombre de la colección a la que se agregan los datos.
+     * "USUARIO", "TEXTO" y "BORRARALO" son los nombres de los campos en el
+     * documento.
+     * El timestamp contiene la fecha y hora en que se agrega el registro.*/
+    
 
-      
+    
 
 
-    //   });
+  //   });
 // Initialize Cloud Firestore through Firebase
 
 
 var db = firebase.firestore();
 
-    db.collection("Alumnos").add({
-      TELEFONO: tel,
-      NOMBRE: nom,
-      MATRICULA: matri,
-      GRUPO: grupo,
-      FECHA: fecha
-  })
-  .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
-  })
-  .catch((error) => {
-      console.error("Error adding document: ", error);
-  });
-    }
-    /** Muestra los mensaje almacenados en la collection "MENSAJE". Se
-     * actualiza automáticamente. */
+  db.collection("Alumnos").add({
+    TELEFONO: tel,
+    NOMBRE: nom,
+    MATRICULA: matri,
+    GRUPO: grupo,
+    FECHA: fecha
+})
+.then((docRef) => {
+    console.log("Document written with ID: ", docRef.id);
+})
+.catch((error) => {
+    console.error("Error adding document: ", error);
+});
+  }
+  /** Muestra los mensaje almacenados en la collection "MENSAJE". Se
+   * actualiza automáticamente. */
 
-   
-      var db = firebase.firestore();
+ function agrega(){
+    var db = firebase.firestore();
 
-      
-      /* Consulta que se actualiza automáticamente. Pide todos los registros
-       * de la colección "MENSAJE" ordenador por el campo "BORRARALO" de forma
-       * descendiente. */
-      db.collection("Alumnos")
-        .onSnapshot(
-          /** Función que muestra los datos enviados por el servidor. Si los
-           * datos cambian en el servidor, se vuelve a invocar esta función y
-           * recibe los datos actualizados.
-           * @param {Array} querySnapshot estructura parecida a un Array, que
-           * contiene una copia de los datos en el servidor. */
-          querySnapshot => {
-            // Vacía la lista con los mensajes.
-            // @ts-ignore
-            var salida = document.getElementById('salida');
-            salida.innerHTML = " ";
-            /* Revisa un por uno los registros de la consulta y los muestra.
-             * El iterador "doc" es un registro de la base de datos. */
-            querySnapshot.forEach(doc => {
-              // recupera los datos almacenados en el registro.
-              const data = doc.data();
-              
-              salida.innerHTML += /* html */
-                `<td>${doc.data().NOMBRE} </td>
-                <td>${doc.data().MATRICULA} </td>
-                <td>${doc.data().GRUPO} </td>
-                <td>${doc.data().TELEFONO} </td>
-                <td>${doc.data().FECHA} </td>`;
-
-
-            })
-          },
-          /* Función que se invoca cuando hay un error. Muesstra el error. Al
-           * invocar esta función la conexión se cancela. Por lo mismo, se
-           * vuelve a conectar. */
-          e => {
-            procesaError(e);
-            // Intenta conectarse otra vez.
-            muestraMensajes();
-          }
-        )
     
+    /* Consulta que se actualiza automáticamente. Pide todos los registros
+     * de la colección "MENSAJE" ordenador por el campo "BORRARALO" de forma
+     * descendiente. */
+    db.collection("Alumnos")
+      .onSnapshot(
+        /** Función que muestra los datos enviados por el servidor. Si los
+         * datos cambian en el servidor, se vuelve a invocar esta función y
+         * recibe los datos actualizados.
+         * @param {Array} querySnapshot estructura parecida a un Array, que
+         * contiene una copia de los datos en el servidor. */
+        querySnapshot => {
+          // Vacía la lista con los mensajes.
+          // @ts-ignore
+          var salida = document.getElementById('salida');
+          salida.innerHTML = " ";
+          /* Revisa un por uno los registros de la consulta y los muestra.
+           * El iterador "doc" es un registro de la base de datos. */
+          querySnapshot.forEach(doc => {
+            // recupera los datos almacenados en el registro.
+            const data = doc.data();
+            
+            salida.innerHTML += /* html */
+              `<td>${doc.data().NOMBRE} </td>
+              <td>${doc.data().MATRICULA} </td>
+              <td>${doc.data().GRUPO} </td>
+              <td>${doc.data().TELEFONO} </td>
+              <td>${doc.data().FECHA} </td>`;
 
 
-
-
-
-
-    /** Procesa un error. Muestra el objeto en la consola y un cuadro de
-     * alerta con el mensaje.
-     * @param {Error} e descripción del error. */
-    function procesaError(e) {
-      console.log(e);
-      alert(e.message);
+          })
+        },
+        /* Función que se invoca cuando hay un error. Muesstra el error. Al
+         * invocar esta función la conexión se cancela. Por lo mismo, se
+         * vuelve a conectar. */
+        e => {
+          procesaError(e);
+          // Intenta conectarse otra vez.
+          muestraMensajes();
+        }
+      )
+  
     }
 
-    /** Map que contiene el texto de escape de los caracteres especiales de
-     * HTML.
-     * @type {Readonly<Map<string, string>> } */
-    const codMap = Object.freeze(new Map([['&', '&amp;'], ['<', '&lt;'],
-    ['>', '&gt;'], ['"', '&quot;'], ["'", '&#039;']]));
 
-    /** Codifica un texto para que escape los caracteres especiales y no se
-     * pueda interpretar como HTML. Esta técnica evita la inyección de código.
-     * @param {string} texto
-     * @returns {string} un texto que no puede interpretarse como HTML. */
-    function cod(texto) {
-      return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
-    }
+
+
+
+  /** Procesa un error. Muestra el objeto en la consola y un cuadro de
+   * alerta con el mensaje.
+   * @param {Error} e descripción del error. */
+  function procesaError(e) {
+    console.log(e);
+    alert(e.message);
+  }
+
+  /** Map que contiene el texto de escape de los caracteres especiales de
+   * HTML.
+   * @type {Readonly<Map<string, string>> } */
+  const codMap = Object.freeze(new Map([['&', '&amp;'], ['<', '&lt;'],
+  ['>', '&gt;'], ['"', '&quot;'], ["'", '&#039;']]));
+
+  /** Codifica un texto para que escape los caracteres especiales y no se
+   * pueda interpretar como HTML. Esta técnica evita la inyección de código.
+   * @param {string} texto
+   * @returns {string} un texto que no puede interpretarse como HTML. */
+  function cod(texto) {
+    return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
+  }
