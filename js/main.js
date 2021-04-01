@@ -246,8 +246,9 @@ function editar(id, nombre, matricula, grupo, telefono) {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
+      boton.innerHTML = 'Guardar';
   }
 
-  boton.innerHTML = 'Guardar';
+  
 
 }
