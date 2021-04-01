@@ -84,23 +84,19 @@ function sesion(){
     // const firestore = firebase.firestore();
     // /** Agrega un usuario a la base de datos. */
 
-    //   const tel = document.getElementById("telefono").value;
-    //   const nom = document.getElementById("nombre").value;
-    //   const matri = document.getElementById("matricula").value;
-    //   const grupo = document.getElementById("grupo").value;
-    //   const fecha = document.getElementById("fecha").value;
-    //   /* "MENSAJE" es el nombre de la colección a la que se agregan los datos.
-    //    * "USUARIO", "TEXTO" y "BORRARALO" son los nombres de los campos en el
-    //    * documento.
-    //    * El timestamp contiene la fecha y hora en que se agrega el registro.*/
+      const tel = document.getElementById("telefono").value;
+      const nom = document.getElementById("nombre").value;
+      const matri = document.getElementById("matricula").value;
+      const grupo = document.getElementById("grupo").value;
+      const fecha = document.getElementById("fecha").value;
+      /* "MENSAJE" es el nombre de la colección a la que se agregan los datos.
+       * "USUARIO", "TEXTO" y "BORRARALO" son los nombres de los campos en el
+       * documento.
+       * El timestamp contiene la fecha y hora en que se agrega el registro.*/
       
 
-    //   firestore.collection("MENSAJE").add({
-    //     TELEFONO: tel,
-    //     NOMBRE: nom,
-    //     MATRICULA: matri,
-    //     GRUPO: grupo,
-    //     FECHA: fecha
+      
+
 
     //   });
 // Initialize Cloud Firestore through Firebase
@@ -109,9 +105,11 @@ function sesion(){
 var db = firebase.firestore();
 
     db.collection("users").add({
-      first: "Ada",
-      last: "Lovelace",
-      born: 1815
+      TELEFONO: tel,
+      NOMBRE: nom,
+      MATRICULA: matri,
+      GRUPO: grupo,
+      FECHA: fecha
   })
   .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
