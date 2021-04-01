@@ -193,4 +193,4 @@ var db = firebase.firestore();
       return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
     }
 
-    muestraAlumnos();
+    
