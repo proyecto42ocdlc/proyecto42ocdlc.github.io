@@ -226,7 +226,7 @@ function editar(id, nombre, matricula, grupo, telefono) {
 
 
 
-  let boton = document.getElementById("boton");
+  
   boton.innerHTML = 'Editar';
   boton.onclick = function () {
 
