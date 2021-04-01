@@ -104,7 +104,7 @@ function sesion(){
 
 var db = firebase.firestore();
 
-    db.collection("users").add({
+    db.collection("Alumnos").add({
       TELEFONO: tel,
       NOMBRE: nom,
       MATRICULA: matri,
@@ -121,12 +121,14 @@ var db = firebase.firestore();
     /** Muestra los mensaje almacenados en la collection "MENSAJE". Se
      * actualiza automáticamente. */
 
-    function muestraMensajes() {
+    function muestraAlumnos() {
+      var db = firebase.firestore();
+
       let salida = document.getElementById("salida");
       /* Consulta que se actualiza automáticamente. Pide todos los registros
        * de la colección "MENSAJE" ordenador por el campo "BORRARALO" de forma
        * descendiente. */
-      firestore.collection("MENSAJE")
+      db.collection("Alumnos")
         .onSnapshot(
           /** Función que muestra los datos enviados por el servidor. Si los
            * datos cambian en el servidor, se vuelve a invocar esta función y
@@ -144,11 +146,11 @@ var db = firebase.firestore();
               const data = doc.data();
               
               salida.innerHTML += /* html */
-                `<td>${doc.data().NOMBRE} </td>
-                <td>${doc.data().MATRICULA} </td>
-                <td>${doc.data().GRUPO} </td>
-                <td>${doc.data().FECHA} </td>
-                <td>${doc.data().TELEFONO} </td>`;
+                `<td>${doc.data().NOMBRE} </td><br>
+                <td>${doc.data().MATRICULA} </td><br>
+                <td>${doc.data().GRUPO} </td><br>
+                <td>${doc.data().FECHA} </td><br>
+                <td>${doc.data().TELEFONO} </td><br>`;
             })
           },
           /* Función que se invoca cuando hay un error. Muestra el error. Al
