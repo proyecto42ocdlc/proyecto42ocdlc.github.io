@@ -2,11 +2,15 @@ input{
      text-align: center;
     width: 250px;    
     display: block;
+    margin: 0 auto; 
     
     
 
 }
-
+input{
+    margin: 0 auto; 
+    width:250px;
+}
 button{
     margin: 0 auto; 
     width:250px;
