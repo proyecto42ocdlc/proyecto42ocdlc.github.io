@@ -194,7 +194,7 @@ function eliminar(id) {
 
 }
 
-function editar(id, nombre, matricula, grupo, telefono) {
+function editar(id, nombre, matricula, grupo, telefono, fecha) {
 
 
   document.getElementById("telefono").value = telefono;
