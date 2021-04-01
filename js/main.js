@@ -139,7 +139,7 @@ db.collection("Alumnos")
               <td>${doc.data().TELEFONO} </td>
               <td>${doc.data().FECHA} </td>
               <td><button class="btn btn-danger" onclick="eliminar('${doc.id}')" >Eliminar</button></td>
-              <td><button class="btn btn-warning" onclick="editar('${doc.id}','${doc.data().NOMBRE}','${doc.data().MATRICULA}','${doc.data().GRUPO}','${doc.data().TELEFONO}')">Editar</button></td>`;
+              <td><button class="btn btn-warning" onclick="editar('${doc.id}','${doc.data().NOMBRE}','${doc.data().MATRICULA}','${doc.data().GRUPO}','${doc.data().TELEFONO}','${doc.data().FECHA}')">Editar</button></td>`;
 
 
 
@@ -194,25 +194,26 @@ function eliminar(id) {
 
 }
 
-function editar(id, nombre, matricula, grupo, telefono) {
+function editar(id, nombre, matricula, grupo, telefono,fecha) {
 
 
   document.getElementById("telefono").value = telefono;
   document.getElementById("nombre").value = nombre;
   document.getElementById("matricula").value = matricula;
   document.getElementById("grupo").value = grupo;
+  document.getElementById("fecha").value = fecha;
   
 
   const tel = document.getElementById("telefono").value;
   const nom = document.getElementById("nombre").value;
   const matri = document.getElementById("matricula").value;
   const grup = document.getElementById("grupo").value;
-  // const fech = document.getElementById("fecha").value;
-  const fech = "Ejemplo";
+  const fech = document.getElementById("fecha").value;
+  // const fech = "Ejemplo";
 
 
 
-  let boton = document.getElementById("boton");
+  // let boton = document.getElementById("boton");
   boton.innerHTML = 'Editar';
   boton.onclick = function (boton) {
 
