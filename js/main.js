@@ -222,7 +222,7 @@ function editar(id, nombre, matricula, grupo, telefono, fecha) {
       NOMBRE: nom,
       MATRICULA: matri,
       GRUPO: grup,
-      FECHA: fech
+      FECHA: fech,
     })
       .then(() => {
         boton.innerHTML = 'Guardar';
