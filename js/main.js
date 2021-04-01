@@ -153,7 +153,7 @@ var db = firebase.firestore();
               <td>${doc.data().GRUPO} </td>
               <td>${doc.data().TELEFONO} </td>
               <td>${doc.data().FECHA} </td>
-              <td><button class="btn btn-danger">Eliminar</button></td>
+              <td><button class="btn btn-danger" onclick="eliminar('${doc.id}')" >Eliminar</button></td>
               <td><button class="btn btn-warning">Editar</button></td>`;
               
 
@@ -196,4 +196,15 @@ var db = firebase.firestore();
    * @returns {string} un texto que no puede interpretarse como HTML. */
   function cod(texto) {
     return (texto || "").replace(/[&<>"']/g, letra => codMap.get(letra));
+  }
+
+
+  function eliminar(id){
+    db.collection("users").doc(id).delete().then(function(){
+      console.log("Se borro el documento");
+    }).catch(function(error){
+      console.log("Error al borrar el documento ");
+    });
+
+
   }
