@@ -147,7 +147,8 @@ var db = firebase.firestore();
             const data = doc.data();
             
             salida.innerHTML += /* html */
-              `<td>${doc.data().NOMBRE} </td>
+              `<td>${doc.id} </td>
+              <td>${doc.data().NOMBRE} </td>
               <td>${doc.data().MATRICULA} </td>
               <td>${doc.data().GRUPO} </td>
               <td>${doc.data().TELEFONO} </td>
