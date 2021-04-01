@@ -197,32 +197,28 @@ function eliminar(id) {
 function editar(id, nombre, matricula, grupo, telefono,fecha) {
 
 
-  let telefo1 = document.getElementById("telefono").value ;
-  let nombre1=document.getElementById("nombre").value;
-  let matricula1=document.getElementById("matricula").value;
-  let grupo1=document.getElementById("grupo").value;
-  let fecha1=document.getElementById("fecha").value;
-
-  telefo1 = telefono;
-  nombre1 = nombre;
-  matricula1 = matricula;
-  grupo1 = grupo;
-  fecha1 = fecha;
-
+  document.getElementById("telefono").value = telefono;
+  document.getElementById("nombre").value = nombre;
+  document.getElementById("matricula").value = matricula;
+  document.getElementById("grupo").value = grupo;
+  document.getElementById("fecha").value = fecha;
   
 
-  const tel = document.getElementById("telefono").value;
-  const nom = document.getElementById("nombre").value;
-  const matri = document.getElementById("matricula").value;
-  const grup = document.getElementById("grupo").value;
-  const fech = document.getElementById("fecha").value;
+
   // const fech = "Ejemplo";
 
 
 
- var boton = document.getElementById("boton");
+  var boton = document.getElementById('boton');
   boton.innerHTML = 'Editar';
-  boton.onclick = function (boton) {
+  boton.onclick = function () {
+
+
+    var tel = document.getElementById("telefono").value;
+    var nom = document.getElementById("nombre").value;
+    var matri = document.getElementById("matricula").value;
+    var grup = document.getElementById("grupo").value;
+    var fech = document.getElementById("fecha").value;  
 
     var alumno = db.collection("Alumnos").doc(id);
 
@@ -232,8 +228,8 @@ function editar(id, nombre, matricula, grupo, telefono,fecha) {
       MATRICULA: matri,
       GRUPO: grup,
       FECHA: fech,
-    })
-      .then(() => {s
+    })  
+      .then(() => {
         boton.innerHTML = 'Guardar';
         console.log("Document successfully updated!");
       })
@@ -242,7 +238,6 @@ function editar(id, nombre, matricula, grupo, telefono,fecha) {
         console.error("Error updating document: ", error);
       });
 
-    boton.innerHTML = 'Guardar';
   }
 
 
