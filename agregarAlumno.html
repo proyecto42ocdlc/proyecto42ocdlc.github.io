@@ -28,7 +28,6 @@
 <body>
 
     <button  onclick="sesion()" class="btn btn-danger" >Iniciar sesion</button>
-    <button >Lista de alumnos <a href="mostrarAlumnos.html"></a></button>
 
     <h1>Agregar alumnos</h1>
 
@@ -42,13 +41,29 @@
         <button  type="submit" class="btn btn-primary" >Guardar</button>    
     </form>
 
-    <form action="javascript:muestraAlumnos()">
+    <!-- <form action="javascript:muestraAlumnos()">
 
 
         <output id="salida"></output>
 
         <button type="submit">Mostrar alumnos</button>
-    </form>    
+    </form>     -->
+
+
+    <table class="table">
+        <thead>
+          <tr>            
+            <th scope="col">Nombre </th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Grupo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Fecha De Nacimiento</th>
+          </tr>
+        </thead>
+        <tbody id="salida">
+
+        </tbody>
+      </table>
 
 </body>
 
