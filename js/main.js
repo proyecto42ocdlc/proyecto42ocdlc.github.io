@@ -2,39 +2,8 @@
 function sesion() {
 
 
-  // @ts-check
-  /** Nombre de usuario atenticado por Firebase. */
-  let usuario = "";
-  /** Conexión al sistema de autenticación de Firebase. */
-  // @ts-ignore
-  const auth = firebase.auth();
 
   var provider = new firebase.auth.GoogleAuthProvider();
-  /** Tipo de autenticación de usuarios. En este caso es con Google. */
-  // @ts-ignore
-  // const provider = new firebase.auth.GoogleAuthProvider();
-  // /* Configura el proveedor de Google para que permita seleccionar de una
-  //  * lista. */
-  // provider.setCustomParameters({ prompt: "select_account" });
-  // /* Recibe una función que se invoca cada que hay un cambio en la
-  //  * autenticación y recibe el modelo con las características del usuario.*/
-  // auth.onAuthStateChanged(
-  //   /** Recibe las características del usuario o null si no ha iniciado
-  //    * sesión. */
-  //   async usuarioAuth => {
-  //     if (usuarioAuth && usuarioAuth.email) {
-  //       // Usuario aceptado.
-  //       usuario = usuarioAuth.email;
-  //       // Muestra los salida del chat.        
-  //     } else {
-  //       // No ha iniciado sesión. Pide datos para iniciar sesión.
-  //       await auth.signInWithRedirect(provider);
-  //     }
-  //   },
-  //   // Función que se invoca si hay un error al verificar el usuario.
-  //   procesaError
-  // );
-
 
   firebase.auth()
   .signInWithRedirect(provider)
@@ -88,8 +57,6 @@ function agrega() {
       console.error("Error adding document: ", error);
     });
 }
-/** Muestra los mensaje almacenados en la collection "MENSAJE". Se
- * actualiza automáticamente. */
 
 
 var db = firebase.firestore();
@@ -126,14 +93,6 @@ db.collection("Alumnos")
 
       })
     },
-    /* Función que se invoca cuando hay un error. Muesstra el error. Al
-     * invocar esta función la conexión se cancela. Por lo mismo, se
-     * vuelve a conectar. */
-    e => {
-      procesaError(e);
-      // Intenta conectarse otra vez.
-      muestraMensajes();
-    }
   )
 
 
