@@ -37,7 +37,7 @@ function sesion() {
 
 
   firebase.auth()
-  .signInWithPopup(provider)
+  .signInWithRedirect(provider)
   .then((result) => {
     /** @type {firebase.auth.OAuthCredential} */
     var credential = result.credential;
