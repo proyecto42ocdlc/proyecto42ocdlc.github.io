@@ -10,28 +10,53 @@ function sesion() {
   const auth = firebase.auth();
   /** Tipo de autenticación de usuarios. En este caso es con Google. */
   // @ts-ignore
-  const provider = new firebase.auth.GoogleAuthProvider();
-  /* Configura el proveedor de Google para que permita seleccionar de una
-   * lista. */
-  provider.setCustomParameters({ prompt: "select_account" });
-  /* Recibe una función que se invoca cada que hay un cambio en la
-   * autenticación y recibe el modelo con las características del usuario.*/
-  auth.onAuthStateChanged(
-    /** Recibe las características del usuario o null si no ha iniciado
-     * sesión. */
-    async usuarioAuth => {
-      if (usuarioAuth && usuarioAuth.email) {
-        // Usuario aceptado.
-        usuario = usuarioAuth.email;
-        // Muestra los salida del chat.        
-      } else {
-        // No ha iniciado sesión. Pide datos para iniciar sesión.
-        await auth.signInWithRedirect(provider);
-      }
-    },
-    // Función que se invoca si hay un error al verificar el usuario.
-    procesaError
-  );
+  // const provider = new firebase.auth.GoogleAuthProvider();
+  // /* Configura el proveedor de Google para que permita seleccionar de una
+  //  * lista. */
+  // provider.setCustomParameters({ prompt: "select_account" });
+  // /* Recibe una función que se invoca cada que hay un cambio en la
+  //  * autenticación y recibe el modelo con las características del usuario.*/
+  // auth.onAuthStateChanged(
+  //   /** Recibe las características del usuario o null si no ha iniciado
+  //    * sesión. */
+  //   async usuarioAuth => {
+  //     if (usuarioAuth && usuarioAuth.email) {
+  //       // Usuario aceptado.
+  //       usuario = usuarioAuth.email;
+  //       // Muestra los salida del chat.        
+  //     } else {
+  //       // No ha iniciado sesión. Pide datos para iniciar sesión.
+  //       await auth.signInWithRedirect(provider);
+  //     }
+  //   },
+  //   // Función que se invoca si hay un error al verificar el usuario.
+  //   procesaError
+  // );
+
+
+  firebase.auth()
+  .signInWithPopup(provider)
+  .then((result) => {
+    /** @type {firebase.auth.OAuthCredential} */
+    var credential = result.credential;
+
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+
+
 
 
 }
@@ -67,10 +92,6 @@ function agrega() {
 
 var db = firebase.firestore();
 
-
-/* Consulta que se actualiza automáticamente. Pide todos los registros
- * de la colección "MENSAJE" ordenador por el campo "BORRARALO" de forma
- * descendiente. */
 db.collection("Alumnos")
   .onSnapshot(
     /** Función que muestra los datos enviados por el servidor. Si los
