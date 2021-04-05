@@ -185,6 +185,7 @@ function editar(id, nombre, matricula, grupo, telefono,fecha) {
 function terminarSesion(){
 
   firebase.auth().signOut().then(() => {
+    location.reload();
     // Sign-out successful.
   }).catch((error) => {
     // An error happened.
