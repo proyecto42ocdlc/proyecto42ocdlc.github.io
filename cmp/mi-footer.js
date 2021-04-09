@@ -4,7 +4,7 @@ class MiFooter
     this.innerHTML = /* html */
       `<p>
         &copy; 2021
-        Ricardo Armando Machorro Reyes.
+       Osvaldo cruz De La Cruz
       </p>`;
   }
 }
