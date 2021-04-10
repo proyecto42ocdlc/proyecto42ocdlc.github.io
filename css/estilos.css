@@ -21,8 +21,7 @@ header {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: rgb(76, 243, 85)
-    var(--color-header);
+  background-color: rgb(76, 243, 85);    
 }
 
 .herramientas {
@@ -38,6 +37,7 @@ header {
 
 header input {
   flex-grow: 1;
+  background-color: rgb(76, 243, 85);
 }
 
 h1 {
